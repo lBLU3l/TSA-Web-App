@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TSA Web</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    
+  </head>
+  <body>
+    <header>
+        <nav>
+
+            <svg class = "close" version="1.1" viewBox="0 0 752 752" xmlns="http://www.w3.org/2000/svg">
+                <path d="m339 413h184.99c9.8125 0 19.223-3.8984 26.164-10.836 6.9375-6.9375 10.836-16.352 10.836-26.164s-3.8984-19.223-10.836-26.16c-6.9414-6.9375-16.352-10.836-26.164-10.836h-184.99c-9.8125 0-19.223 3.8984-26.16 10.836-6.9414 6.9375-10.84 16.348-10.84 26.16s3.8984 19.227 10.84 26.164c6.9375 6.9375 16.348 10.836 26.16 10.836zm-147.99-184.99c0-9.8125 3.8945-19.223 10.836-26.164 6.9375-6.9375 16.348-10.836 26.16-10.836h295.99c9.8125 0 19.223 3.8984 26.164 10.836 6.9375 6.9414 10.836 16.352 10.836 26.164s-3.8984 19.223-10.836 26.16c-6.9414 6.9414-16.352 10.84-26.164 10.84h-295.99c-9.8125 0-19.223-3.8984-26.16-10.84-6.9414-6.9375-10.836-16.348-10.836-26.16zm221.99 295.99c0-9.8125 3.8984-19.223 10.836-26.164 6.9414-6.9375 16.352-10.836 26.164-10.836h73.996c9.8125 0 19.223 3.8984 26.164 10.836 6.9375 6.9414 10.836 16.352 10.836 26.164s-3.8984 19.223-10.836 26.16c-6.9414 6.9414-16.352 10.836-26.164 10.836h-73.996c-9.8125 0-19.223-3.8945-26.164-10.836-6.9375-6.9375-10.836-16.348-10.836-26.16z" fill="#dfdcd8"/>
+            </svg>
+
+            <ul class = "navLink">
+                <li><a href="/" class="link">Home</a></li>
+                <li><a href="/to-do" class="link">To-Do List</a></li>
+                <li><a href="#" class="link">Notepad</a></li>
+                <li><a href="/calendar" class="link">Calendar</a></li>
+                <li><a href="#" class="link">Spreadsheet</a></li>
+            </ul>
+
+        </nav>
+        <?xml version="1.0" encoding="UTF-8"?>
+        <svg class = "menu" version="1.1" viewBox="0 0 752 752" xmlns="http://www.w3.org/2000/svg">
+            <path d="m413 413h-184.99c-9.8125 0-19.223-3.8984-26.164-10.836-6.9375-6.9375-10.836-16.352-10.836-26.164s3.8984-19.223 10.836-26.16c6.9414-6.9375 16.352-10.836 26.164-10.836h184.99c9.8125 0 19.223 3.8984 26.16 10.836 6.9414 6.9375 10.84 16.348 10.84 26.16s-3.8984 19.227-10.84 26.164c-6.9375 6.9375-16.348 10.836-26.16 10.836zm147.99-184.99c0-9.8125-3.8945-19.223-10.836-26.164-6.9375-6.9375-16.348-10.836-26.16-10.836h-295.99c-9.8125 0-19.223 3.8984-26.164 10.836-6.9375 6.9414-10.836 16.352-10.836 26.164s3.8984 19.223 10.836 26.16c6.9414 6.9414 16.352 10.84 26.164 10.84h295.99c9.8125 0 19.223-3.8984 26.16-10.84 6.9414-6.9375 10.836-16.348 10.836-26.16zm-221.99 295.99c0-9.8125-3.8984-19.223-10.836-26.164-6.9414-6.9375-16.352-10.836-26.164-10.836h-73.996c-9.8125 0-19.223 3.8984-26.164 10.836-6.9375 6.9414-10.836 16.352-10.836 26.164s3.8984 19.223 10.836 26.16c6.9414 6.9414 16.352 10.836 26.164 10.836h73.996c9.8125 0 19.223-3.8945 26.164-10.836 6.9375-6.9375 10.836-16.348 10.836-26.16z" fill="#4b624a"/>
+        </svg>
+    </header>
+
+    <div class = "text">
+        <h1 class = "listDate"><u><b>{{day}}, {{month}} {{date}}</b></u></h1>
+    </div>
+
+    <script>
+        const menu = document.querySelector('.menu')
+        const close = document.querySelector('.close')
+        const nav = document.querySelector('nav')
+  
+        menu.addEventListener('click', () => {
+          nav.classList.add('open-nav')
+        })
+  
+        close.addEventListener('click', () => {
+          nav.classList.remove('open-nav')
+        })
+      </script>
+  </body>
+</html>
