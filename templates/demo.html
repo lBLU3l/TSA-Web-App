@@ -10,10 +10,12 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script defer src="script.js"></script>
     
     
   </head>
-  <body>
+  <body onload ="startTime()">
+    
     <div class="wrapper">
       <header>
         <nav>
@@ -38,7 +40,26 @@
       </header>
       <div class = "shape"></div>
       <div class = "text">
-        <h1 class = "morning">Good {{greet}}</h1>
+        <h1 class = "morning" id="greeting"></h1>
+        <p id = "digTime"></p>
+      </div>
+      <div class="clock">
+        <div class="hand hour" data-hour-hand ></div>
+        <div class="hand minute" data-minute-hand ></div>
+        <div class="hand second" data-second-hand ></div>
+        <div class="number number1">I</div>
+        <div class="number number2">II</div>
+        <div class="number number3">III</div>
+        <div class="number number4">IV</div>
+        <div class="number number5">V</div>
+        <div class="number number6">VII</div>
+        <div class="number number7">VII</div>
+        <div class="number number8">IIX</div>
+        <div class="number number9">IX</div>
+        <div class="number number10">X</div>
+        <div class="number number11">XI</div>
+        <div class="number number12">XII</div>
+      
       </div>
     </div>
 
@@ -57,7 +78,36 @@
         nav.classList.remove('open-nav')
       })
     </script>
+
+<script>
+  function startTime() {
+    const today = new Date();
+    let h = today.getHours();
+    let m = today.getMinutes();
+    let s = today.getSeconds();
+    m = checkTime(m);
+    s = checkTime(s);
+    document.getElementById('digTime').innerHTML =  h + ":" + m + ":" + s;
+    if (0 <= h && h <= 4) {
+      document.getElementById('greeting').innerHTML =  "Good Night";
+    }
+    if (5 <= h && h <= 11) {
+      document.getElementById('greeting').innerHTML =  "Good Morning";
+    }
+    if (12 <= h && h <= 17) {
+      document.getElementById('greeting').innerHTML =  "Good Afternoon";
+    }
+    if (18 <= h && h <= 21) {
+      document.getElementById('greeting').innerHTML =  "Good Evening";
+    }
+    setTimeout(startTime, 1000);
+  }
   
+  function checkTime(i) {
+    if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+    return i;
+  }
+  </script>
 
     
   </body>
