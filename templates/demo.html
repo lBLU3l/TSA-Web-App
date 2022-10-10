@@ -10,7 +10,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <script defer src="script.js"></script>
+    <script defer src="{{ url_for('static', filename='script.js') }}"></script>
     
     
   </head>
@@ -38,29 +38,34 @@
               <path d="m413 413h-184.99c-9.8125 0-19.223-3.8984-26.164-10.836-6.9375-6.9375-10.836-16.352-10.836-26.164s3.8984-19.223 10.836-26.16c6.9414-6.9375 16.352-10.836 26.164-10.836h184.99c9.8125 0 19.223 3.8984 26.16 10.836 6.9414 6.9375 10.84 16.348 10.84 26.16s-3.8984 19.227-10.84 26.164c-6.9375 6.9375-16.348 10.836-26.16 10.836zm147.99-184.99c0-9.8125-3.8945-19.223-10.836-26.164-6.9375-6.9375-16.348-10.836-26.16-10.836h-295.99c-9.8125 0-19.223 3.8984-26.164 10.836-6.9375 6.9414-10.836 16.352-10.836 26.164s3.8984 19.223 10.836 26.16c6.9414 6.9414 16.352 10.84 26.164 10.84h295.99c9.8125 0 19.223-3.8984 26.16-10.84 6.9414-6.9375 10.836-16.348 10.836-26.16zm-221.99 295.99c0-9.8125-3.8984-19.223-10.836-26.164-6.9414-6.9375-16.352-10.836-26.164-10.836h-73.996c-9.8125 0-19.223 3.8984-26.164 10.836-6.9375 6.9414-10.836 16.352-10.836 26.164s3.8984 19.223 10.836 26.16c6.9414 6.9414 16.352 10.836 26.164 10.836h73.996c9.8125 0 19.223-3.8945 26.164-10.836 6.9375-6.9375 10.836-16.348 10.836-26.16z" fill="#4b624a"/>
           </svg>
       </header>
-      <div class = "shape"></div>
+      <div class = "shape">
+        <div class="clock">
+          <div class="hand hour" data-hour-hand></div>
+          <div class="hand minute" data-minute-hand></div>
+          <div class="hand second" data-second-hand></div>
+          <div class="number number1">I</div>
+          <div class="number number2">II</div>
+          <div class="number number3">III</div>
+          <div class="number number4">IV</div>
+          <div class="number number5">V</div>
+          <div class="number number6">VII</div>
+          <div class="number number7">VII</div>
+          <div class="number number8">IIX</div>
+          <div class="number number9">IX</div>
+          <div class="number number10">X</div>
+          <div class="number number11">XI</div>
+          <div class="number number12">XII</div>
+        </div>
+        <div class="info">
+          <div class="date" id="findDate"></div>
+        </div>
+          
+      </div>
       <div class = "text">
         <h1 class = "morning" id="greeting"></h1>
         <p id = "digTime"></p>
       </div>
-      <div class="clock">
-        <div class="hand hour" data-hour-hand ></div>
-        <div class="hand minute" data-minute-hand ></div>
-        <div class="hand second" data-second-hand ></div>
-        <div class="number number1">I</div>
-        <div class="number number2">II</div>
-        <div class="number number3">III</div>
-        <div class="number number4">IV</div>
-        <div class="number number5">V</div>
-        <div class="number number6">VII</div>
-        <div class="number number7">VII</div>
-        <div class="number number8">IIX</div>
-        <div class="number number9">IX</div>
-        <div class="number number10">X</div>
-        <div class="number number11">XI</div>
-        <div class="number number12">XII</div>
       
-      </div>
     </div>
 
     
@@ -85,9 +90,17 @@
     let h = today.getHours();
     let m = today.getMinutes();
     let s = today.getSeconds();
+    let date = today.getDate();
+    let dayNum = today.getDay();
+    let monthNum = today.getMonth() + 1;
+
+    
+    
+
     m = checkTime(m);
     s = checkTime(s);
-    document.getElementById('digTime').innerHTML =  h + ":" + m + ":" + s;
+    
+
     if (0 <= h && h <= 4) {
       document.getElementById('greeting').innerHTML =  "Good Night";
     }
@@ -97,16 +110,56 @@
     if (12 <= h && h <= 17) {
       document.getElementById('greeting').innerHTML =  "Good Afternoon";
     }
-    if (18 <= h && h <= 21) {
+    if (18 <= h && h <= 23) {
       document.getElementById('greeting').innerHTML =  "Good Evening";
     }
+    if (h >= 12) {
+      document.getElementById('digTimeWithMin').innerHTML =  h-12 + ":" + m + " PM";
+    }
+    if (h < 12) {
+      if (h == 0) {
+        document.getElementById('digTimeWithMin').innerHTML =  "12" + ":" + m + " AM";
+      }
+      else {
+        document.getElementById('digTimeWithMin').innerHTML =  h + ":" + m + " AM";
+      }
+    }
     setTimeout(startTime, 1000);
+
+    
+
+    
   }
+
+
+
+    
+  
   
   function checkTime(i) {
     if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
     return i;
   }
+  </script>
+  <script>
+    
+    const today = new Date();
+    let h = today.getHours();
+    let m = today.getMinutes();
+    let s = today.getSeconds();
+    let date = today.getDate();
+    let dayNum = today.getDay();
+    let monthNum = today.getMonth();
+
+    
+    const month_short = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
+    let month = month_short[monthNum];
+
+    const daysWeek = ["MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"]
+    let day = daysWeek[dayNum - 1]
+  
+    document.getElementById('findDate').innerHTML =  day + " " + month + " " + date;
+    
   </script>
 
     
