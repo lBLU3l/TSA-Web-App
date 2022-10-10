@@ -31,8 +31,8 @@
 }
 
 .shape {
-  height: 690px;
-  width: 400px;
+  height: 65%;
+  width: 23%;
   background-color: #bebab6;
   border-radius: 10px;
   margin-top: 85px;
@@ -41,6 +41,8 @@
   display: inline-block;
   vertical-align: middle;
   position: absolute;
+  left: 0%;
+  rotate: -.1deg;
 }
 
 .gridOutline {
@@ -366,7 +368,7 @@ body {
     width: 3em;
     margin-top: 0em;
     cursor: pointer;
-    margin-left: 11.2em;
+    margin-left: 80%;
   }
 
   nav {
@@ -405,12 +407,15 @@ body {
   }
 
   .clock {
-    width: 300px;
-    height: 300px;
-    background-color: rgba(255,255,255,0.8);
+    width: 52%;
+    height: 0px;
+    padding-bottom: 52%;
+    background-color: rgba(255,255,255);
     border-radius: 50%;
     border: 2px solid black;
     position: relative;
+    left: 3%;
+    bottom: -2%;
   }
 
   .clock .number {
@@ -420,7 +425,7 @@ body {
     height: 100%;
     text-align: center;
     transform: rotate(var(--rotation));
-    font-size: 1.5rem;
+    font-size: 120%;
     font-family: 'Times New Roman', Times, serif;
   }
 
@@ -462,23 +467,54 @@ body {
   }
 
   .clock .hand.second {
-    width: 3px;
-    height: 40%;
+    width: 1%;
+    height: 37%;
     background-color: red;
   }
   
   .clock .hand.minute {
-    width: 7px;
-    height: 35%;
+    width: 3%;
+    height: 32%;
     background-color: black;
   }
 
   .clock .hand.hour {
     width: 10px;
-    height: 30%;
+    height: 27%;
     background-color: black;
   }
   
+  .timeonea {
+    position: absolute;
+    background-color: rgb(244, 241, 241);
+    width: 40%;
+    height: 10%;
+    left: 57%;
+    bottom: 80%;
+    font-size: 100%;
+    border-radius: 50%;
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    padding-bottom: 5% 0%;
+  }
+
+  .info {
+    position: absolute;
+    width: 15%;
+    text-align: center;
+    left: 70%;
+    bottom: 70%;
+    font-size: 250%;
+    font-display: 50%; 
+  }
+
+  .info .date {
+    font-family: monospace;
+  }
+
+
+
+ 
 
   @media only screen and (max-width: 1200px) {
     nav {
